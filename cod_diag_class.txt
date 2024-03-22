@@ -1,0 +1,36 @@
+#DIAGRAMA DE CLASES
+
+@startuml
+class Cuenta {
+    - __num_cuenta: int
+    - __doc_identidad: int
+    - __nombre: str
+    - __saldo: float
+    + __init__(num_cuenta, doc_identidad, nombre, saldo)
+    + get_num_cuenta(): int
+    + get_doc_identidad(): int
+    + get_nombre(): str
+    + get_saldo(): float
+    + depositar_dinero(monto)
+    + retirar_dinero(monto)
+    + mostrar_datos()
+}
+
+class Modelo {
+    - cuentas_clientes: list
+    + __init__()
+    + crear_cuenta(num_cuenta, doc_identidad, nombre, saldo)
+    + mostrar_cuentas()
+}
+
+class UI {
+    - modelo: Modelo
+    + __init__()
+    + crear_cuenta()
+    + mostrar_cuentas()
+    + run()
+}
+
+Cuenta "1" *-- "*" Modelo
+Modelo "1" *-- "1" UI
+@enduml
