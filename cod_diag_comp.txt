@@ -1,0 +1,16 @@
+#DIAGRAMA DE COMPONENTES
+
+@startuml
+package "Aplicación" {
+    [UI]
+    [Modelo]
+}
+
+cloud {
+    [Usuario]
+}
+
+[Usuario] --> [UI] : Interactúa
+[UI] --> [Modelo] : Realiza operaciones
+[Modelo] --> [Cuenta] : Gestiona cuentas
+@enduml
